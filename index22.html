@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Fancytree - Example: Font Awesome 5</title>
+
+    <script
+            src="htp://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script
+            src="htp://code.jquery.com/ui/1.12.1/jquery-ui.js"
+            integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+            crossorigin="anonymous"></script>
+
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.fancytree/2.30.1/skin-awesome/ui.fancytree.css" rel="stylesheet" class="skinswitcher">
+    <script src="dist/jquery.fancytree.min.js"></script>
+    <script src="dist/jquery.fancytree.glyph.js"></script>
+
+    <!-- (Irrelevant source removed.) -->
+
+
+    <!-- Add code to initialize the tree when the document is loaded: -->
+    <script type="text/javascript">
+        $(function(){
+            // Initialize Fancytree
+            $("#tree").fancytree({
+                extensions: ["glyph"],
+                checkbox: true,
+                selectMode: 3,
+                glyph: {
+                    preset: "awesome5",
+                    map: {}
+                },
+                source: {url: "ajax-tree-products.json", debugDelay: 1000},
+                // source: {url: "ajax-tree-taxonomy.json", debugDelay: 1000},
+                lazyLoad: function(event, ctx) {
+                    ctx.result = {url: "ajax-sub2.json", debugDelay: 2000};
+                }
+            });
+        });
+    </script>
+
+    <!-- (Irrelevant source removed.) -->
+
+</head>
+
+<body class="example">
+<h1>Example: 'glyph' extension with 'font-awesome' theme and Font Awesome 5 Web Font/CSS icons</h1>
+<div class="description">
+    <p>
+        The 'glyph' extension adds <code>fa-...</code> classes to the
+        node's <code>span</code> tags, so scalable vector icons as provided by
+        <a href="http://fontawesome.io/" class="external" target="_blank">Font Awesome</a>
+        can be used.<br>
+        See also
+        <a href="https://github.com/mar10/fancytree/wiki/ExtGlyph"
+           class="external" target="_blank">ext-glyph</a>.
+    </p>
+</div>
+
+<hr>
+Font size: <span id="curSize"></span>
+<div id="fontSlider"></div>
+<hr>
+<div id="tree">
+</div>
+
+<!-- (Irrelevant source removed.) -->
+</body>
+</html>
